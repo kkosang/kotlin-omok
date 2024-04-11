@@ -25,9 +25,9 @@ class Stones(initialStones: List<Stone> = emptyList()) {
         direction: Direction,
     ): Int {
         var count = 1
-        count += countSameColorStonesInOneDirection(startStone, direction.direction1)
-        count += countSameColorStonesInOneDirection(startStone, direction.direction2)
-        println(count)
+        for (vector in direction.directionVectors) {
+            count += countSameColorStonesInOneDirection(startStone, vector)
+        }
         return count
     }
 
